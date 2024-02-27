@@ -3,13 +3,11 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const apiBaseUrl = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
-  // const { data: blog, error, isPending } = useFetch('http://localhost:8000/blogs/' + id);
-  const { data: blog, error, isPending } = useFetch(`${apiBaseUrl}/blogs/${id}`);
+  const { data: blog, error, isPending } = useFetch('https://json-server-phi-seven.vercel.app/blogs' + id);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    fetch(`${apiBaseUrl}/blogs/${blog.id}`, {
+    fetch('https://json-server-phi-seven.vercel.app/blogs' + id ,{
       method: 'DELETE'
     }).then(() => {
       navigate('/');
