@@ -3,11 +3,11 @@ import useFetch from "./useFetch";
 
 const BlogDetails = () => {
   const { id } = useParams();
-  const { data: blog, error, isPending } = useFetch('https://json-server-phi-seven.vercel.app/blogs' + id);
+  const { data: blog, error, isPending } = useFetch('https://json-server-phi-seven.vercel.app/blogs/' + id);
   const navigate = useNavigate();
 
   const handleClick = () => {
-    fetch('https://json-server-phi-seven.vercel.app/blogs' + id ,{
+    fetch('https://json-server-phi-seven.vercel.app/blogs/' + id ,{
       method: 'DELETE'
     }).then(() => {
       navigate('/');
